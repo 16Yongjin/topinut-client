@@ -1,28 +1,36 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+v-app
+  v-toolbar(app :clipped-left="clipped")
+    v-toolbar-title(v-text="title")
+  v-content
+    lists
+  edit-dialog
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Lists from './components/Lists'
+import EditDialog from './components/EditDialog'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
+    Lists,
+    EditDialog
+  },
+  data () {
+    return {
+      clipped: false,
+      drawer: true,
+      fixed: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Topinut'
+    }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style>
+
 </style>
